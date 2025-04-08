@@ -1,23 +1,73 @@
-import React from 'react';
-import { ScrollView, Text, Image, View } from 'react-native';
+import React, { useRef } from 'react';
+import { ScrollView, Text, Image, View, FlatList, Dimensions, TouchableOpacity } from 'react-native';
 import OptionButton from '../components/OptionButton';
 import styles from '../styles/globalStyles';
 
+const { width } = Dimensions.get('window');
+
+const carouselItems = [
+  {
+    image: require('../assets/screen1.jpg'),
+    caption: 'Bringing the heart of Asia in every Filipino dish',
+  },
+  {
+    image: require('../assets/screen2.jpg'),
+    caption: 'Experience the rich taste of authentic Japanese cuisine.',
+  },
+];
+
+const renderCarouselItem = ({ item }) => (
+  <View style={styles.slide}>
+    <Image source={item.image} style={styles.carouselImage} />
+
+    {/* Overlay for darker effect */}
+    <View style={styles.overlay} />
+
+    <View style={styles.carouselContent}>
+      <Text style={styles.carouselCaption}>{item.caption}</Text>
+      <TouchableOpacity style={styles.orderNowBtn} onPress={() => console.log('Order Now pressed')}>
+        <Text style={styles.orderNowText}>Order Now</Text>
+      </TouchableOpacity>
+    </View>
+  </View>
+);
+
 export default function HomeScreen() {
+  const flatListRef = useRef();
+
   return (
     <ScrollView style={styles.container}>
-      <Image source={require('../assets/food.jpg')} style={styles.headerImage} />
-      <Text style={styles.tagline}>"Bringing the heart of Asia in every Filipino dish"</Text>
+      {/* Carousel */}
+      <FlatList
+        ref={flatListRef}
+        data={carouselItems}
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        renderItem={renderCarouselItem}
+        keyExtractor={(item, index) => index.toString()}
+      />
 
+      {/* Buttons */}
       <View style={styles.optionsContainer}>
-        <OptionButton icon="restaurant" label="DINE IN" />
-        <OptionButton icon="bicycle" label="DELIVERY" />
+        <TouchableOpacity style={styles.optionButton}>
+          <Image source={require('../assets/dine.png')} style={styles.optionImage} />
+          <Text style={styles.optionText}>DINE IN</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.optionButton}>
+          <Image source={require('../assets/delivery.png')} style={styles.optionImage} />
+          <Text style={styles.optionText}>DELIVERY</Text>
+        </TouchableOpacity>
       </View>
 
-      <Text style={styles.description}>
-        Haru Bayan is a technology-driven fusion of digital & Filipino-inspired dining culture,
-        offering an immersive food experience through dine-in and delivery services.
-      </Text>
+      {/* About Haru Bayan */}
+      <View style={styles.strongTextBox}>
+        <Text style={styles.strongText}>
+          Haru Bayan is a technology-driven fusion of digital & Filipino-inspired dining culture,
+          offering an immersive food experience through dine-in and delivery services.
+        </Text>
+      </View>
 
       <Image source={require('../assets/sushi.jpg')} style={styles.image} />
 
@@ -73,7 +123,7 @@ export default function HomeScreen() {
       <View style={styles.teamSection}>
         <Text style={styles.ITteam}>Meet Our IT Department Team</Text>
         <View style={styles.teamContainer}>
-          {[
+          {[ 
             { name: 'Amar, Rianson R.', role: 'LEADER' },
             { name: 'Plazos, Jade Mariel', role: '' },
             { name: 'Sarsoza, Kristal A.', role: '' },
