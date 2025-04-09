@@ -38,13 +38,13 @@ export default StyleSheet.create({
     textShadowRadius: 2,
   },
   orderNowBtn: {
-    backgroundColor: '#8B0000',
+    backgroundColor: '#ffc7c9',
     paddingHorizontal: 20,
     paddingVertical: 8,
     borderRadius: 20,
   },
   orderNowText: {
-    color: '#fff',
+    color: '#000000',
     fontWeight: 'bold',
   },
 
@@ -73,7 +73,7 @@ export default StyleSheet.create({
   optionButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#8B0000',
+    backgroundColor: '#9b001e',
     padding: 10,
     borderRadius: 12,
     width: 100,
@@ -272,4 +272,16 @@ export default StyleSheet.create({
     marginVertical: 10,
     borderRadius: 5,
   },
+
+  // === USER SCREEN CONTACT INPUT ===
+
+  contact_input: {
+    borderWidth: 1,
+    borderColor: '#000',      
+    paddingHorizontal: 12,     
+    paddingVertical: 8,        
+    marginVertical: 5,
+    backgroundColor: '#fdd',   // pink
+  },
+  
 });

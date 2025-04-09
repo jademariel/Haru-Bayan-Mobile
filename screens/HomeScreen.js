@@ -8,11 +8,11 @@ const { width } = Dimensions.get('window');
 const carouselItems = [
   {
     image: require('../assets/screen1.jpg'),
-    caption: 'Bringing the heart of Asia in every Filipino dish',
+    caption: '"Bringing the heart of Japan to every Filipino plate—one authentic bite at a time."',
   },
   {
     image: require('../assets/screen2.jpg'),
-    caption: 'Experience the rich taste of authentic Japanese cuisine.',
+    caption: '"Experience the rich taste of authentic Japanese cuisine."',
   },
 ];
 
@@ -122,21 +122,22 @@ export default function HomeScreen() {
       {/* IT Department Team */}
       <View style={styles.teamSection}>
         <Text style={styles.ITteam}>Meet Our IT Department Team</Text>
-        <View style={styles.teamContainer}>
-          {[ 
-            { name: 'Amar, Rianson R.', role: 'LEADER' },
-            { name: 'Plazos, Jade Mariel', role: '' },
-            { name: 'Sarsoza, Kristal A.', role: '' },
-            { name: 'Yburan, Christine Jane', role: '' },
-          ].map((member, index) => (
-            <View key={index} style={styles.teamCard}>
-              <Image source={require('../assets/profile-placeholder.jpg')} style={styles.teamImage} />
-              <Text style={styles.memberName}>{member.name}</Text>
-              {member.role ? <Text style={styles.memberRole}>{member.role}</Text> : null}
-            </View>
-          ))}
-        </View>
+          <View style={styles.teamContainer}>
+        {[
+            { name: 'Amar, Rianson R.', role: 'LEADER', image: require('../assets/team/amar.png') },
+            { name: 'Plazos, Jade Mariel', role: '', image: require('../assets/team/jade.jpg') },
+            { name: 'Sarsoza, Kristal A.', role: '', image: require('../assets/team/kristal.jpg') },
+            { name: 'Yburan, Christine Jane', role: '', image: require('../assets/team/christine.jpg') },
+        ].map((member, index) => (
+      <View key={index} style={styles.teamCard}>
+        <Image source={member.image} style={styles.teamImage} />
+        <Text style={styles.memberName}>{member.name}</Text>
+        {member.role ? <Text style={styles.memberRole}>{member.role}</Text> : null}
       </View>
+    ))}
+  </View>
+</View>
+
     </ScrollView>
   );
 }

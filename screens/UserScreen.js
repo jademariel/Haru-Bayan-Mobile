@@ -58,29 +58,34 @@ export default function UserScreen() {
 
         {/* Contact Form */}
         <View style={{ width: '48%' }}>
-          <Text style={[styles.strongTitle, { fontSize: 16 }]}>CONTACT FORM</Text>
+        <Text style={[styles.strongTitle, { fontSize: 16, width: '100%', textAlign: 'center' }]}> CONTACT FORM </Text>
+        
           <TextInput
             placeholder="Name"
-            style={styles.input}
+            style={styles.contact_input}
             value={name}
             onChangeText={setName}
           />
+
           <TextInput
             placeholder="Email"
-            style={styles.input}
+            style={styles.contact_input}
             value={email}
             onChangeText={setEmail}
           />
+
           <TextInput
             placeholder="Message"
-            style={[styles.input, { height: 100, textAlignVertical: 'top', backgroundColor: '#fdd' }]}
+            style={[styles.contact_input, { height: 100, textAlignVertical: 'top' }]}
             multiline
             value={message}
             onChangeText={setMessage}
           />
+
           <TouchableOpacity style={styles.button} onPress={handleSend}>
             <Text style={styles.buttonText}>SEND</Text>
           </TouchableOpacity>
+
         </View>
       </View>
     </ScrollView>

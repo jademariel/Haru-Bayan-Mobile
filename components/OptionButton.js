@@ -13,7 +13,7 @@ export default function OptionButton({ icon, label }) {
 
 const styles = StyleSheet.create({
   optionButton: {
-    backgroundColor: '#8B0000',
+    backgroundColor: '#9b001e',
     padding: 20,
     borderRadius: 10,
     alignItems: 'center',
