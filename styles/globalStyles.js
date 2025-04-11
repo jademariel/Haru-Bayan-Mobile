@@ -31,7 +31,7 @@ export default StyleSheet.create({
     color: '#fff',
     fontSize: 18,
     fontWeight: 'bold',
-    textAlign: 'RIGHT',
+    textAlign: 'right',
     marginBottom: 10,
     textShadowColor: '#000',
     textShadowOffset: { width: 1, height: 1 },
@@ -48,23 +48,22 @@ export default StyleSheet.create({
     fontWeight: 'bold',
   },
 
-  // === HOME SCREEN ===
+  // === GENERAL LAYOUT ===
   container: {
     flex: 1,
     backgroundColor: '#fff',
     paddingHorizontal: 10,
   },
-  headerImage: {
-    width: '100%',
-    height: 200,
-    resizeMode: 'cover',
+  separatorLine: {
+    height: 1,
+    backgroundColor: '#808080',
+    marginVertical: 20,
   },
-  tagline: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginVertical: 10,
+  sectionWrapper: {
+    marginBottom: 20,
   },
+
+  // === DINE-IN & DELIVERY ===
   optionsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -113,28 +112,66 @@ export default StyleSheet.create({
     marginVertical: 10,
     textAlign: 'center',
   },
-
   // === ABOUT US ===
+  aboutRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    margin: 3,
+  },
+  aboutImage: {
+    width: '60%',
+    height: 150,
+    resizeMode: 'cover',
+    borderRadius: 10,
+    marginRight: -10,
+    marginLeft: -22,
+  },
+  aboutTextBox: {
+    width: '55%',
+    justifyContent: 'center',
+    paddingLeft: 10,
+    paddingTop: 15,
+  },
   sectionTitle: {
     fontSize: 22,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginVertical: 10,
+    marginTop: 5,
+    marginBottom: 5,
     color: '#39000B',
   },
-  valuesTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  description: {
     textAlign: 'center',
     marginVertical: 10,
-    color: '#39000B',
-  },
-  descriptionBox: {
     fontSize: 14,
-    marginHorizontal: 20,
-    textAlign: 'center',
-    marginBottom: 20,
   },
+
+  // === STRONG POINT SECTION ===
+  strongSection: {
+    paddingHorizontal: 10,
+    marginVertical: 20,
+  },
+  strongTitle: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#39000b',
+    marginBottom: 10,
+    textAlign: 'left',
+  },
+  strongTextBox: {
+    width: '100%',
+    backgroundColor: '#9b001e',
+    padding: 15,
+    borderRadius: 8,
+  },
+  strongText: {
+    fontSize: 14,
+    color: '#ffffff',
+    textAlign: 'center',
+  },
+
+  // === STATS SECTION ===
   statsRow: {
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -150,7 +187,7 @@ export default StyleSheet.create({
   statNumber: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#39000B',
+    color: '#9b001e',
   },
   statLabel: {
     fontSize: 12,
@@ -164,7 +201,68 @@ export default StyleSheet.create({
   stat: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: '#8B0000',
+    color: '#9b001e',
+  },
+
+  // === CONTACT US SECTION ===
+  contactContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    marginVertical: 20,
+    paddingHorizontal: 10,
+    maxWidth: 800,
+    alignSelf: 'center',
+  },
+  contactLeft: {
+    flex: 1,
+    minWidth: '45%',
+    marginRight: 10,
+  },
+  contactRight: {
+    flex: 1,
+    minWidth: '45%',
+  },
+  contactCard: {
+    backgroundColor: '#f8c6d8',
+    padding: 15,
+    borderRadius: 10,
+    marginBottom: 15,
+  },
+  contactCardTitle: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    color: '#6a0038',
+    marginBottom: 5,
+  },
+  contactLink: {
+    color: '#007bff',
+    marginTop: 5,
+    textDecorationLine: 'underline',
+  },
+  contactFormTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  contactInput: {
+    borderColor: '#ccc',
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 10,
+    marginBottom: 10,
+    backgroundColor: '#ffe6e6',
+  },
+  sendButton: {
+    backgroundColor: '#fa7e96',
+    alignItems: 'center',
+    padding: 12,
+    borderRadius: 10,
+    marginTop: 10,
+  },
+  sendButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
 
   // === TEAM SECTION ===
@@ -210,78 +308,12 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  teamBanner: {
+
+  // === SUSHI IMAGE ===
+  sushiImage: {
     width: '100%',
-    height: 180,
-    resizeMode: 'cover',
-    marginBottom: 10,
-  },
-
-  // === ABOUT ROWS ===
-  aboutRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 10,
-    marginVertical: 15,
-  },
-  aboutImage: {
-    width: '48%',
-    height: 130,
-    resizeMode: 'cover',
-    borderRadius: 10,
-  },
-  aboutTextBox: {
-    width: '48%',
-    justifyContent: 'center',
-  },
-
-  // === STRONG POINT SECTION ===
-  strongSection: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    height: 250, // Adjusted to prevent image from taking too much space
+    resizeMode: 'contain',
     marginVertical: 20,
-    paddingHorizontal: 10,
   },
-  strongTitle: {
-    width: '40%',
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#39000b',
-  },
-  strongTextBox: {
-    width: '100%',  // Increased width for a wider box
-    backgroundColor: '#9b001e',
-    padding: 15,  // More padding for spacing
-    borderRadius: 8,
-  },
-  strongText: {
-    fontSize: 14,  // Increased font size for better readability
-    color: '#ffffff',
-    textAlign: 'center',
-  },
-
-  // === DESCRIPTION TEXT SPECIFIC STYLES ===
-  highlightedText: {
-    fontSize: 16,
-    color: '#fff',  // White text
-    backgroundColor: '#8B0000', // Red background
-    textAlign: 'center',
-    padding: 10,
-    marginVertical: 10,
-    borderRadius: 5,
-  },
-
-  // === USER SCREEN CONTACT INPUT ===
-
-  contact_input: {
-    borderWidth: 1,
-    borderColor: '#000',      
-    paddingHorizontal: 12,     
-    paddingVertical: 8,        
-    marginVertical: 5,
-    backgroundColor: '#fdd',   // pink
-  },
-  
 });
