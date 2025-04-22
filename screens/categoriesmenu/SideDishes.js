@@ -25,7 +25,7 @@ const SideDishes = () => {
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
           <Ionicons name="arrow-back" size={22} color="#333" />
         </TouchableOpacity>
-        <Text style={styles.title}>SIDE DISHES</Text>
+        <Text style={styles.title}>Side Dishes</Text>
       </View>
 
       {/* Recipe List */}
