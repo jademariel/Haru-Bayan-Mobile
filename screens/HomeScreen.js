@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { ScrollView, Text, Image, View, FlatList, Dimensions, TouchableOpacity } from 'react-native';
-import styles from '../styles/globalStyles'; // Make sure your styles are correct
+import styles from '../styles/globalStyles';
 
 const { width } = Dimensions.get('window');
 
@@ -12,6 +12,14 @@ const carouselItems = [
   {
     image: require('../assets/screen2.jpg'),
     caption: '"Experience the rich taste of authentic Japanese cuisine."',
+  },
+  {
+    image: require('../assets/screen3.jpg'),
+    caption: '"Savor every bite. The flavors of Japan, now closer than ever."',
+  },
+  {
+    image: require('../assets/screen4.jpg'),
+    caption: '"Tradition in every bite. Passion in every dish."',
   },
 ];
 
@@ -28,9 +36,19 @@ const renderCarouselItem = ({ item }) => (
   </View>
 );
 
-// 👇 Add `navigation` to the props here
 export default function HomeScreen({ navigation }) {
-  const flatListRef = useRef();
+  const flatListRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const nextIndex = (currentIndex + 1) % carouselItems.length;
+      flatListRef.current.scrollToIndex({ index: nextIndex, animated: true });
+      setCurrentIndex(nextIndex);
+    }, 3000); // Auto-swipe every 3 seconds
+
+    return () => clearInterval(interval); // Clear interval on component unmount
+  }, [currentIndex]);
 
   return (
     <ScrollView style={styles.container}>
@@ -43,13 +61,14 @@ export default function HomeScreen({ navigation }) {
         showsHorizontalScrollIndicator={false}
         renderItem={renderCarouselItem}
         keyExtractor={(item, index) => index.toString()}
+        scrollEnabled={false} // Prevent manual swiping if you want full automation
       />
 
       {/* 🍽️ Dine-In & Delivery Buttons */}
       <View style={styles.optionsContainer}>
         <TouchableOpacity 
           style={styles.optionButton} 
-          onPress={() => navigation.navigate('Menu')} // 👈 navigate to Menu
+          onPress={() => navigation.navigate('Menu')}
         >
           <Image source={require('../assets/dine.png')} style={styles.optionImage} />
           <Text style={styles.optionText}>DINE IN</Text>
@@ -57,7 +76,7 @@ export default function HomeScreen({ navigation }) {
 
         <TouchableOpacity 
           style={styles.optionButton} 
-          onPress={() => navigation.navigate('Menu')} // 👈 navigate to Menu
+          onPress={() => navigation.navigate('Menu')}
         >
           <Image source={require('../assets/delivery.png')} style={styles.optionImage} />
           <Text style={styles.optionText}>DELIVERY</Text>
