@@ -168,7 +168,7 @@ export default StyleSheet.create({
   strongText: {
     fontSize: 14,
     color: '#ffffff',
-    textAlign: 'center',
+    textAlign: 'justify',
   },
 
   // === STATS SECTION ===
